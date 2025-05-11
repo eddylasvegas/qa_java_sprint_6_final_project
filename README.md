@@ -12,6 +12,3 @@
 | **JaCoCo**         | 0.8.13           |
 | **Maven**          | 3.8.1            |
 
-## Запуск тестов
-```bash
-mvn clean test
