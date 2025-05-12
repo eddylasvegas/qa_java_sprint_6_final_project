@@ -29,4 +29,9 @@ public class LionTest {
         when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
+
+    @Test(expected = Exception.class)
+    public void testInvalidSex() throws Exception {
+        new Lion("Неизвестный пол", new Feline());
+    }
 }
