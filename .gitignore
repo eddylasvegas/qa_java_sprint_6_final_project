@@ -5,10 +5,6 @@
 # Log files
 *.log
 
-# Build output
-target/
-**/target/
-
 # Maven-specific
 pom.xml.versionsBackup
 dependency-reduced-pom.xml
@@ -45,3 +41,9 @@ Thumbs.db
 
 # Virtual machine crash logs
 hs_err_pid*
+
+# Игнорировать ВСЁ в target, кроме jacoco-отчётов
+target/*
+!target/site/
+target/site/*
+!target/site/jacoco/
