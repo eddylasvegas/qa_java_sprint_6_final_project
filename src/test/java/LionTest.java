@@ -19,15 +19,15 @@ public class LionTest {
     @Test
     public void testGetKittens() throws Exception{
         Lion lion = new Lion("Самец", feline);
-        when(feline.getKittens()).thenReturn(3);
-        assertEquals(3, lion.getKittens());
+        when(feline.getKittens()).thenReturn(1);
+        assertEquals("Некорректное количество котят",1, lion.getKittens());
     }
 
     @Test
     public void testGetFood() throws Exception {
         Lion lion = new Lion("Самка", feline);
         when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
+        assertEquals("Вернулся некорректный список еды", List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 
     @Test(expected = Exception.class)

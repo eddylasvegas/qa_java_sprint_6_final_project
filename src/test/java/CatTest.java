@@ -1,8 +1,10 @@
 import com.example.Cat;
 import com.example.Feline;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -14,18 +16,24 @@ import static org.mockito.Mockito.when;
 public class CatTest {
     @Mock
     private Feline feline;
+    private Cat cat;
+
+    @Before
+    public void setUp() {
+        cat = new Cat(feline);
+    }
 
     @Test
     public void testGetSound(){
-        Cat cat = new Cat(feline);
-        assertEquals("Мяу", cat.getSound());
+
+        assertEquals("Кот издает неверный звук", "Мяу", cat.getSound());
     }
 
     @Test
     public void testGetFood() throws Exception{
-        Cat cat = new Cat(feline);
+
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         when(feline.eatMeat()).thenReturn(expectedFood);
-        assertEquals(expectedFood, cat.getFood());
+        assertEquals("Вернулся некорректный список еды", expectedFood, cat.getFood());
     }
 }
